@@ -39,16 +39,42 @@ function activateInput() {
 }
 
 function render() {
+    //criação do botão
+    function createDeleteButton(index){
+        function deleteName() {
+            globalNames.splice(index, 1);
+            render();
+        }
+
+        var button = document.createElement('button');
+        button.classList.add('deleteButton');
+        button.textContent = 'x';
+
+        button.addEventListener('click', deleteName)
+
+        return button;
+    }
+
+    //pegando o elemtento do html que vai sofrer inserção
     var divNames = document.querySelector('#names');
     divNames.innerHTML = '';
     
+    //criando a lista
     var ul = document.createElement('ul');
 
+    //percorrendo os vet de nomes e fazendo ordenação da DOM da lista e as funções
     for(var i = 0; i < globalNames.length; i++) {
         var currentName = globalNames[i];
 
         var li = document.createElement('li');
-        li.textContent = currentName;
+        var button = createDeleteButton(i);
+
+        var span = document.createElement('span');
+        span.textContent = currentName;
+
+        li.appendChild(button);
+        li.appendChild(span);
+
         ul.appendChild(li);
     }
     
