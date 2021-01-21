@@ -7,6 +7,7 @@ var currentIndex = null;
 var isEditing = false;
 
 
+
 function start() {
     inputName = document.querySelector('#inputName');
     
