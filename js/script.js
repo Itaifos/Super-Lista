@@ -1,4 +1,4 @@
-// essa addEventListener serve espetar a DOM carregar p depois fazer as execução, dessa forma reduz os bugs.
+// essa addEventListener serve esperar a DOM carregar para depois execuar a função start, dessa forma reduz os bugs.
 window.addEventListener('load', start);
 
 var globalNames = [];
@@ -104,7 +104,7 @@ function render() {
     //criando a lista
     var ul = document.createElement('ul');
 
-    //percorrendo os vet de nomes e fazendo ordenação da DOM da lista e as funções
+    //percorrendo o vet de nomes e fazendo ordenação da lista e as funções
     for(var i = 0; i < globalNames.length; i++) {
         var currentName = globalNames[i];
 
